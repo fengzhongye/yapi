@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Route, BrowserRouter as Router } from 'react-router-dom';
-import { Home, Group, Project, Follows, AddProject, Login } from './containers/index';
+import { Group, Project, Follows, AddProject, Login } from './containers/index';
 import { Alert } from 'antd';
 import User from './containers/User/User.js';
 import Header from './components/Header/Header';
@@ -29,7 +29,7 @@ const alertContent = () => {
 let AppRoute = {
   home: {
     path: '/',
-    component: Home
+    component: Login
   },
   group: {
     path: '/group',
@@ -139,7 +139,6 @@ export default class App extends Component {
     }
     return r;
   }
-
   render() {
     return this.route(this.props.loginState);
   }

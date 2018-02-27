@@ -3,7 +3,7 @@ import React, { PureComponent as Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { Icon, Layout, Menu, Dropdown, message, Tooltip, Popover, Tag } from 'antd'
+import { Icon, Layout, Menu, Dropdown, message, Tooltip, Popover } from 'antd'
 import { checkLoginState, logoutActions, loginTypeAction } from '../../reducer/modules/user'
 import { changeMenuItem } from '../../reducer/modules/menu'
 import { withRouter } from 'react-router';
@@ -78,12 +78,6 @@ const tipAdd = (<div className="title-container">
   <h3 className="title"><Icon type="plus-circle" /> 新建项目</h3>
   <p>在任何页面都可以快速新建项目</p>
 </div>);
-const tipDoc = (<div className="title-container">
-  <h3 className="title">使用文档 <Tag color="orange">推荐!</Tag></h3>
-  <p>初次使用 YApi，强烈建议你阅读 <a target="_blank" href="https://yapi.ymfe.org" rel="noopener noreferrer">使用文档</a>
-    ，我们为你提供了通俗易懂的快速入门教程，更有详细的使用说明，欢迎阅读！ </p>
-</div>);
-
 MenuUser.propTypes = {
   user: PropTypes.string,
   msg: PropTypes.string,
@@ -129,21 +123,6 @@ const ToolUser = (props) => {
             <Link to="/add-project">
               <Icon className="dropdown-link" style={{ fontSize: 16 }} type="plus-circle" />
             </Link>
-          </li>
-        </Tooltip>
-      </Popover>
-      <Popover
-        overlayClassName="popover-index"
-        content={<GuideBtns isLast={true} />}
-        title={tipDoc}
-        placement="bottomRight"
-        arrowPointAtCenter
-        visible={props.studyTip === 3 && !props.study}
-      >
-        <Tooltip placement="bottom" title={'使用文档'}>
-          <li className="toolbar-li">
-            <a target="_blank" href="https://yapi.ymfe.org" rel="noopener noreferrer"><Icon
-              className="dropdown-link" style={{ fontSize: 16 }} type="question-circle" /></a>
           </li>
         </Tooltip>
       </Popover>
